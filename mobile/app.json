@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "CampusBite",
+    "slug": "campusbite",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1DB954"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.campusbite.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "CampusBite needs your location for delivery tracking.",
+        "NSLocationAlwaysUsageDescription": "CampusBite uses location for live delivery tracking."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1DB954"
+      },
+      "package": "com.campusbite.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow CampusBite to use your location."
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "https://your-api.railway.app/api"
+    }
+  }
+}

@@ -1,0 +1,164 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  VENDOR
+  RIDER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PREPARING
+  READY
+  PICKED_UP
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+model User {
+  id           String   @id @default(uuid())
+  phone        String   @unique
+  name         String
+  role         Role     @default(STUDENT)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  student      Student?
+  vendor       Vendor?
+  rider        Rider?
+}
+
+model Student {
+  id           String   @id @default(uuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id])
+  hostel       String?
+  bitesPoints  Int      @default(0)
+  referralCode String   @unique @default(cuid())
+  referredBy   String?
+  orders       Order[]
+  createdAt    DateTime @default(now())
+}
+
+model Vendor {
+  id            String     @id @default(uuid())
+  userId        String     @unique
+  user          User       @relation(fields: [userId], references: [id])
+  businessName  String
+  description   String?
+  address       String
+  latitude      Float?
+  longitude     Float?
+  logoUrl       String?
+  coverUrl      String?
+  isOpen        Boolean    @default(true)
+  isVerified    Boolean    @default(false)
+  commissionRate Float     @default(0.12)
+  momoNumber    String?
+  rating        Float      @default(0)
+  totalRatings  Int        @default(0)
+  foodItems     FoodItem[]
+  orders        Order[]
+  createdAt     DateTime   @default(now())
+}
+
+model Rider {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  isAvailable Boolean  @default(true)
+  latitude    Float?
+  longitude   Float?
+  momoNumber  String?
+  rating      Float    @default(0)
+  orders      Order[]
+  createdAt   DateTime @default(now())
+}
+
+model FoodItem {
+  id          String      @id @default(uuid())
+  vendorId    String
+  vendor      Vendor      @relation(fields: [vendorId], references: [id])
+  name        String
+  description String?
+  price       Float
+  imageUrl    String?
+  category    String
+  isAvailable Boolean     @default(true)
+  orderItems  OrderItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Order {
+  id            String      @id @default(uuid())
+  studentId     String
+  student       Student     @relation(fields: [studentId], references: [id])
+  vendorId      String
+  vendor        Vendor      @relation(fields: [vendorId], references: [id])
+  riderId       String?
+  rider         Rider?      @relation(fields: [riderId], references: [id])
+  status        OrderStatus @default(PENDING)
+  totalGHS      Float
+  deliveryFee   Float       @default(3.0)
+  deliveryAddress String
+  specialNote   String?
+  paymentMethod String      @default("MOMO")
+  payment       Payment?
+  items         OrderItem[]
+  rating        Int?
+  review        String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model OrderItem {
+  id         String   @id @default(uuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id])
+  foodItemId String
+  foodItem   FoodItem @relation(fields: [foodItemId], references: [id])
+  quantity   Int
+  unitPrice  Float
+  subtotal   Float
+}
+
+model Payment {
+  id              String        @id @default(uuid())
+  orderId         String        @unique
+  order           Order         @relation(fields: [orderId], references: [id])
+  amount          Float
+  currency        String        @default("GHS")
+  method          String
+  status          PaymentStatus @default(PENDING)
+  hubtelReference String?
+  clientReference String?       @unique
+  momoNumber      String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model OTP {
+  id        String   @id @default(uuid())
+  phone     String
+  code      String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}

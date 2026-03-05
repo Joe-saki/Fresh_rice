@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "CampusBite",
+    "slug": "campusbite",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": { "backgroundColor": "#1DB954" },
+    "android": {
+      "adaptiveIcon": { "backgroundColor": "#1DB954" },
+      "package": "com.campusbite.student"
+    },
+    "ios": { "bundleIdentifier": "com.campusbite.student" },
+    "extra": { "eas": { "projectId": "your-eas-project-id" } }
+  }
+}
