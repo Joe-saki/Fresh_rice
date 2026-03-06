@@ -1,7 +1,7 @@
 FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --production
+RUN npm install --omit=dev
 COPY . .
 RUN npx prisma generate
 EXPOSE 5000
