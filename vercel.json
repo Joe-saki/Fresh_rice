@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd vendor-dashboard && npm install && npm run build",
+  "outputDirectory": "vendor-dashboard/dist",
+  "installCommand": "cd vendor-dashboard && npm install",
+  "framework": "vite"
+}
