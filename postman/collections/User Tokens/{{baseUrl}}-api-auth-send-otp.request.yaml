@@ -1,0 +1,12 @@
+$kind: http-request
+name: "{{baseUrl}}/api/auth/send-otp"
+url: "{{baseUrl}}/api/auth/send-otp"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"phone\": \"+233202222222\"\r
+
+    }\r\n"
+order: 1772875856483
