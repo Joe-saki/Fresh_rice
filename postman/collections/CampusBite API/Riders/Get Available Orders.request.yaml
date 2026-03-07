@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/riders/available-orders'
+order: 1000
+description: Get available orders for pickup (Rider only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

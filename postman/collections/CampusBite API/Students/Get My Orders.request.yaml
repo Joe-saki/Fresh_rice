@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/students/orders'
+order: 1000
+description: Get order history for current student (Student only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

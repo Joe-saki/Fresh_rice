@@ -1,0 +1,8 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/riders/accept/{{orderId}}'
+order: 2000
+description: Accept an order for delivery (Rider only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

@@ -1,0 +1,18 @@
+$kind: http-request
+method: PATCH
+url: '{{baseUrl}}/api/orders/{{orderId}}/status'
+order: 3000
+description: |-
+  Update order status (Vendor/Rider)
+  Statuses: PENDING, CONFIRMED, PREPARING, READY, PICKED_UP, DELIVERED, CANCELLED
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "CONFIRMED"
+    }

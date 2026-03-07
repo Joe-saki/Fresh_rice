@@ -1,0 +1,17 @@
+$kind: http-request
+method: PATCH
+url: '{{baseUrl}}/api/menu/{{menuItemId}}'
+order: 3000
+description: Update a menu item (Vendor only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "price": 30.00,
+      "available": true
+    }

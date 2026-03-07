@@ -1,0 +1,8 @@
+$kind: http-request
+method: PATCH
+url: '{{baseUrl}}/api/vendors/{{vendorId}}/toggle'
+order: 4000
+description: Toggle vendor open/closed status (Vendor only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

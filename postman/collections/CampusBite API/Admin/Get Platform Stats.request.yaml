@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/admin/stats'
+order: 1000
+description: Get platform statistics (Admin only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

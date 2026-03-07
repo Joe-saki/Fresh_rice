@@ -1,0 +1,20 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/auth/verify-otp'
+order: 2000
+description: |-
+  Verify OTP and authenticate user. Returns JWT token.
+  For new users, name and role are required.
+  Roles: STUDENT, VENDOR, RIDER
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "phone": "{{phone}}",
+      "code": "123456",
+      "name": "Test User",
+      "role": "STUDENT"
+    }

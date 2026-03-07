@@ -1,0 +1,17 @@
+$kind: http-request
+method: PATCH
+url: '{{baseUrl}}/api/riders/location'
+order: 3000
+description: Update rider current location (Rider only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "latitude": 5.6037,
+      "longitude": -0.1870
+    }

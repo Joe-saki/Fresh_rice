@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/orders/vendor/active'
+order: 5000
+description: Get active orders for vendor (Vendor only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

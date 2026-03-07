@@ -1,0 +1,17 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/orders/{{orderId}}/rate'
+order: 4000
+description: Rate a completed order (Student only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "rating": 5,
+      "comment": "Great food and fast delivery!"
+    }

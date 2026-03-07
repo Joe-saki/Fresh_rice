@@ -1,0 +1,5 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/health'
+order: 1000
+description: Check API health status (no authentication required)

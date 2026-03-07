@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/admin/vendors/pending'
+order: 3000
+description: Get list of vendors pending verification (Admin only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

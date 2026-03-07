@@ -1,0 +1,26 @@
+$kind: collection
+name: CampusBite API
+description: |-
+  CampusBite Food Delivery API for campus food ordering system.
+  
+  ## Authentication
+  Most endpoints require JWT Bearer token authentication.
+  Use the Auth endpoints to get a token via OTP verification.
+  
+  ## Roles
+  - STUDENT: Can place orders, view rewards
+  - VENDOR: Can manage menu, view orders
+  - RIDER: Can accept and deliver orders
+  - ADMIN: Platform administration
+  
+  ## Base URL
+  Default: http://localhost:5000
+variables:
+  - key: baseUrl
+    value: 'http://localhost:5000'
+    description: API base URL
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'

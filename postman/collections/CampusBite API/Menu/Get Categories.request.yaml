@@ -1,0 +1,5 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/menu/categories'
+order: 1000
+description: Get all menu categories

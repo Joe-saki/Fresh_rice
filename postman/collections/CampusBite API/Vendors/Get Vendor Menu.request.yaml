@@ -1,0 +1,5 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/vendors/{{vendorId}}/menu'
+order: 3000
+description: Get menu items for a specific vendor

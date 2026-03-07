@@ -1,0 +1,30 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/orders'
+order: 1000
+description: Place a new order (Student only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "vendorId": "{{vendorId}}",
+      "items": [
+        {
+          "menuItemId": "{{menuItemId}}",
+          "quantity": 2,
+          "notes": "Extra spicy please"
+        }
+      ],
+      "deliveryLocation": {
+        "building": "Engineering Block",
+        "room": "Room 204",
+        "landmark": "Near the main entrance"
+      },
+      "deliveryType": "DELIVERY",
+      "paymentMethod": "MOMO"
+    }

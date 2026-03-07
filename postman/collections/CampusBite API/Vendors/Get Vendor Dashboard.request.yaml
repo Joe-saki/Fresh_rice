@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/vendors/me/dashboard'
+order: 5000
+description: Get vendor dashboard stats (Vendor only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

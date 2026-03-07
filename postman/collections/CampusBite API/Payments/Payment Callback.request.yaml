@@ -1,0 +1,19 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/payments/callback'
+order: 2000
+description: Hubtel payment callback webhook (called by Hubtel)
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ResponseCode": "0000",
+      "Data": {
+        "ClientReference": "{{orderId}}",
+        "Amount": 50.00,
+        "TransactionId": "txn_123456"
+      }
+    }

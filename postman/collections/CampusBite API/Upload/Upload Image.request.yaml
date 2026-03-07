@@ -1,0 +1,15 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/upload'
+order: 1000
+description: Upload an image file (authenticated users)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'
+body:
+  type: formdata
+  content:
+    - key: image
+      type: file
+      src: ''
+      description: Image file to upload

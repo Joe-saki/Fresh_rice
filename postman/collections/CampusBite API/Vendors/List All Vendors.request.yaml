@@ -1,0 +1,9 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/vendors'
+order: 1000
+description: Get list of all vendors (optionally filter by campus)
+queryParams:
+  - key: campus
+    value: ''
+    disabled: true

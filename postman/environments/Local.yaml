@@ -1,0 +1,30 @@
+name: Local Development
+values:
+  - key: baseUrl
+    value: 'http://localhost:5000'
+    enabled: true
+    type: default
+  - key: token
+    value: ''
+    enabled: true
+    type: default
+  - key: vendorId
+    value: ''
+    enabled: true
+    type: default
+  - key: orderId
+    value: ''
+    enabled: true
+    type: default
+  - key: menuItemId
+    value: ''
+    enabled: true
+    type: default
+  - key: phone
+    value: '+233200000000'
+    enabled: true
+    type: default
+  - key: momoNumber
+    value: '+233200000000'
+    enabled: true
+    type: default

@@ -1,0 +1,5 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/vendors/{{vendorId}}'
+order: 2000
+description: Get vendor details by ID

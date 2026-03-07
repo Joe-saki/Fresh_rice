@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/students/rewards'
+order: 2000
+description: Get reward points for current student (Student only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

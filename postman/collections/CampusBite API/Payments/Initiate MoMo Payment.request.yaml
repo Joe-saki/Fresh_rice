@@ -1,0 +1,18 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/payments/momo'
+order: 1000
+description: Initiate Mobile Money payment via Hubtel
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "orderId": "{{orderId}}",
+      "phone": "{{phone}}",
+      "provider": "mtn"
+    }

@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/payments/{{orderId}}/status'
+order: 3000
+description: Get payment status for an order
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

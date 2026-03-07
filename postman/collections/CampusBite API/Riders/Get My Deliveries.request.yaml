@@ -1,0 +1,8 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/riders/deliveries'
+order: 4000
+description: Get delivery history for current rider (Rider only)
+headers:
+  - key: Authorization
+    value: 'Bearer {{token}}'

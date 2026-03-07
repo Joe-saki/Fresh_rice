@@ -1,0 +1,5 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/api/auth/me'
+order: 3000
+description: Get current authenticated user profile
